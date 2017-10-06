@@ -27,16 +27,25 @@ FHWidget::FHWidget(QWidget *parent) :
     layout1->addLayout(part1);
     //groupBox1->setLayout(layout1);
 
-//    groupBox2=ui->groupBox_2;
-//    QGridLayout *layout2=new QGridLayout;
+    groupBox2=ui->groupBox_2;
+    layout2=ui->layout2;
+    layout2->addWidget(ui->treeView);
     //groupBox2->setLayout(layout2);
 
-//    groupBox3=ui->groupBox_3;
-//    QGridLayout *layout3=new QGridLayout;
+    groupBox3=ui->groupBox_3;
+    layout3=ui->layout3;
+    layout3->addStretch();
+    //layout3->addWidget(ui->horizontalSpacer_2);
+    layout3->addWidget(ui->pushButton_begin);
+    //layout3->addWidget(ui->horizontalSpacer);
+    layout3->addStretch(3);
+    layout3->addWidget(ui->pushButton_save);
+    layout3->addStretch(2);
    // groupBox3->setLayout(layout3);
 
-//    groupBox4=ui->groupBox_4;
-//    QGridLayout *layout4=new QGridLayout;
+    groupBox4=ui->groupBox_4;
+    layout4=ui->layout4;
+    layout4->addWidget(ui->textBrowser_log);
     //groupBox4->setLayout(layout4);
 
     treeView=ui->treeView;

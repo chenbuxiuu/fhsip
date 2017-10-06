@@ -39,9 +39,9 @@ protected:
     QGroupBox *groupBox4;
 
     QVBoxLayout *layout1;
-    QGridLayout *layout2;
-    QGridLayout *layout3;
-    QGridLayout *layout4;
+    QHBoxLayout *layout2;
+    QHBoxLayout *layout3;
+    QHBoxLayout *layout4;
 
     QTreeView *treeView;
 private slots:
