@@ -51,7 +51,11 @@
      </property>
      <layout class="QHBoxLayout" name="layout4">
       <item>
-       <widget class="QTextBrowser" name="textBrowser_log"/>
+       <widget class="QTextBrowser" name="textBrowser_log">
+        <property name="styleSheet">
+         <string notr="true">font: 9pt &quot;Times New Roman&quot;;</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -93,7 +97,7 @@
       <item>
        <widget class="QPushButton" name="pushButton_begin">
         <property name="text">
-         <string>PushButton</string>
+         <string>开始</string>
         </property>
        </widget>
       </item>

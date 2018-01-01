@@ -1,7 +1,9 @@
 #include "device.h"
 
 Device::Device()
-{}
+{
+
+}
 
 Device::Device(string ip)
 {
@@ -24,7 +26,28 @@ string Device::getIp()
     return this->ip;
 }
 
+set<string> Device::getSlot()
+{
+    return this->slot;
+}
+
 void Device::setIp(string ip)
 {
     this->ip=ip;
 }
+
+void Device::setSlot(string slot)
+{
+    this->slot.insert(slot);
+}
+
+void Device::setSlot(set<string> slot)
+{
+    set<string>::iterator it;
+    it=slot.begin();
+    for(it;it!=slot.end();it++)
+    {
+        this->slot.insert(*it);
+    }
+}
+

@@ -16,13 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     device.cpp \
     fhwidget.cpp \
-    autoupdate.cpp
+    autoupdate.cpp \
+    slotinputdialog.cpp
 
 HEADERS  += mainwindow.h \
     device.h \
     fhwidget.h \
-    autoupdate.h
+    autoupdate.h \
+    slotinputdialog.h
 
 FORMS    += mainwindow.ui \
     fhwidget.ui \
-    autoupdate.ui
+    autoupdate.ui \
+    slotinputdialog.ui

@@ -10,7 +10,18 @@
 #include <string>
 #include <QGroupBox>
 #include <QLayout>
+#include <QProcess>
+#include <QTime>
+#include <QTextCodec>
+#include <QPushButton>
+#include <QString>
+#include <QFile>
+#include <QAction>
+#include <QMenu>
+#include <fstream>
 #include "device.h"
+
+
 
 namespace Ui {
 class FHWidget;
@@ -23,9 +34,14 @@ class FHWidget : public QWidget
 public:
     explicit FHWidget(QWidget *parent = 0);
     ~FHWidget();
-    void updateTreeView(string ip,string operation);
-    void initLineEdit();
-    void initTreeView();
+    void update_TreeView(string ip,string operation);
+    void init_LineEdit();
+    void init_TreeView();
+    void creat_TreeViewPopMenu();
+    set<Device>::iterator find_device_by_ip(string ip);
+    Device update_device(Device d);
+
+    virtual void creatShell(string shell);
 
 private:
 
@@ -43,12 +59,32 @@ protected:
     QHBoxLayout *layout3;
     QHBoxLayout *layout4;
 
+//    QPushButton *beginButton;
+
     QTreeView *treeView;
+    QMenu *treeViewItemPopMenu;
+    QAction *delDeviceAction;
+
+    QProcess *proc;
+
+    QString shell;
+
+
 private slots:
-    void treeItemChanged ( QStandardItem * item );
-    string on_lineEdit_IP_editingFinished();
-    void on_pushButton_addDevice_clicked();
-    void on_lineEdit_IP_returnPressed();
+    void treeItemChanged ( QStandardItem * item );//树操作
+    string on_lineEdit_IP_editingFinished();//device IP
+    void on_pushButton_addDevice_clicked();//device IP加入树
+    void on_lineEdit_IP_returnPressed();//device IP加入树
+    void on_pushButton_begin_clicked();//开始按钮
+
+    void on_treeView_customContextMenuRequested(const QPoint &pos);
+
+protected slots:
+    void show_process_log();//过程打印
+    void stop_process();//中止进程
+    void finish_process(int exitCode);//执行完成
+
+    void delete_device();
 };
 
 #endif // FHWIDGET_H
