@@ -18,8 +18,10 @@
 #include <QFile>
 #include <QAction>
 #include <QMenu>
+#include <QMessageBox>
 #include <fstream>
 #include "device.h"
+#include "tool.h"
 
 
 
@@ -34,7 +36,7 @@ class FHWidget : public QWidget
 public:
     explicit FHWidget(QWidget *parent = 0);
     ~FHWidget();
-    void update_TreeView(string ip,string operation);
+    QStandardItem* update_TreeView(string ip,string operation);
     void init_LineEdit();
     void init_TreeView();
     void creat_TreeViewPopMenu();
@@ -42,12 +44,18 @@ public:
     Device update_device(Device d);
 
     virtual void creatShell(string shell);
+    virtual void showHistory();
+
+    set<Device> treeView_traverse(string level2="none");
+
+    bool paramCheck();//检查参数，无误开启进程，有错提示错误信息
 
 private:
 
 protected:
     Ui::FHWidget *ui;
     set<Device> device;
+    string type;
     QStandardItemModel *model;
     QGroupBox *groupBox1;
     QGroupBox *groupBox2;
@@ -60,6 +68,7 @@ protected:
     QHBoxLayout *layout4;
 
 //    QPushButton *beginButton;
+//    QPushButton *saveButton;
 
     QTreeView *treeView;
     QMenu *treeViewItemPopMenu;
@@ -68,6 +77,7 @@ protected:
     QProcess *proc;
 
     QString shell;
+
 
 
 private slots:
@@ -79,12 +89,18 @@ private slots:
 
     void on_treeView_customContextMenuRequested(const QPoint &pos);
 
+    void on_pushButton_save_clicked();
+
+
+
 protected slots:
     void show_process_log();//过程打印
     void stop_process();//中止进程
     void finish_process(int exitCode);//执行完成
 
     void delete_device();
+
+    void on_comboBox_type_currentTextChanged(const QString &arg1);
 };
 
 #endif // FHWIDGET_H

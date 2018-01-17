@@ -36,17 +36,40 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_addMa">
+  <widget class="QLabel" name="label_FTP">
    <property name="geometry">
     <rect>
-     <x>408</x>
-     <y>185</y>
+     <x>10</x>
+     <y>230</y>
+     <width>54</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_FTP">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>230</y>
+     <width>133</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_fileChoose">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>270</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>选择文件</string>
    </property>
   </widget>
  </widget>
